@@ -1,0 +1,280 @@
+/* NOEMA Duel: electric blue, violet and coral against a midnight arena. */
+:root {
+  color: #f0f3ff;
+  background: #0c1025;
+  color-scheme: dark;
+}
+
+.duel-app,
+.help-backdrop {
+  --duel-bg: #0c1025;
+  --duel-surface: #161d39;
+  --duel-surface-raised: #1c2648;
+  --duel-line: #344369;
+  --duel-line-soft: #293555;
+  --duel-text: #f0f3ff;
+  --duel-muted: #a0afcf;
+  --duel-dim: #8294ba;
+  --duel-blue: #6b91ff;
+  --duel-cyan: #44d9ff;
+  --duel-violet: #b39aff;
+  --duel-coral: #ff9579;
+  color: var(--duel-text);
+}
+
+.duel-app {
+  background:
+    radial-gradient(ellipse at 8% 0%, #4153c72c, transparent 40%),
+    radial-gradient(ellipse at 92% 12%, #8544b91d, transparent 37%),
+    var(--duel-bg);
+}
+
+.duel-app :is(button, input, select):focus-visible,
+.help-backdrop :is(button, input, select):focus-visible {
+  outline-color: #8baaff;
+}
+
+.duel-app select {
+  color: #d6e1ff;
+  background: #202b4c;
+  border-color: #3a4b76;
+}
+
+.duel-app .duel-topbar { background: #10162ce8; border-color: #7894ee20; }
+.duel-app .duel-brand strong { color: #f5f5ff; }
+.duel-app .duel-brand strong > span { color: #d3bdff; background: #a879ff19; border-color: #a879ff50; }
+.duel-app .brand-mark span { background: #668eff; }
+.duel-app .brand-mark span:nth-child(2) { background: #44d9ff; }
+.duel-app .brand-mark span:nth-child(3) { background: #ac83ff; }
+.duel-app .duel-topbar nav > :is(span, button) { color: #a1aed1; }
+.duel-app .duel-topbar nav .nav-active { color: #d6e3ff; }
+.duel-app .nav-active::after { background: #769cff; box-shadow: 0 0 12px #537cff70; }
+.duel-app .local-badge { color: #a1b3d4; }
+.duel-app :is(.local-badge > span, .eyebrow > span, .live-dot::before) { background: #55d8ff; box-shadow: 0 0 10px #44d9ff55; }
+.duel-app .eyebrow { color: #a7b9ed; }
+.duel-app h1 { color: #f1f3ff; }
+.duel-app h1 > span { color: #a697fa; }
+.duel-app .duel-intro p { color: #a0afcf; }
+.duel-app .intro-coordinate { color: #7696cf; }
+.duel-app .intro-coordinate > div { color: #a7b9df; }
+.duel-app .intro-coordinate span { color: #8194bd; }
+
+.duel-app :is(.arena-panel, .tactics-panel, .decision-panel, .feed-panel, .gru-model-panel) {
+  background: #161d39;
+  border-color: #35446a;
+  box-shadow: 0 14px 38px #02061b26;
+}
+.duel-app .arena-heading { background: #19213d; border-color: #303d61; }
+.duel-app .arena-heading h2 { color: #eef2ff; }
+.duel-app .arena-heading > div:first-child > div > span { color: #97a9d0; }
+.duel-app .arena-index { color: #aebfff; background: #263152; border-color: #465986; }
+.duel-app .phase-badge { color: #b7c4e4; border-color: #415076; background: #232c4a; }
+.duel-app .phase-badge i { background: #92a8d7; }
+.duel-app .phase-running { color: #80e4ff; background: #27b8f014; border-color: #4badd947; }
+.duel-app .phase-running i { background: #44d9ff; box-shadow: 0 0 8px #44d9ff80; }
+.duel-app .phase-paused { color: #ffd18a; }
+.duel-app .phase-finished { color: #d5b9ff; }
+.duel-app .icon-button { background: #253152; color: #b2c5f2; border-color: #42557d; }
+.duel-app .expand-button { color: #b2c5f2; background: #25315280; }
+.duel-app .scoreboard { background: #121a34; }
+.duel-app .team-0 { --team: #49dcff; --team-muted: #4ac8f8; --team-bg: #44d9ff18; }
+.duel-app .team-1 { --team: #ff987d; --team-muted: #ef8b77; --team-bg: #ff86681b; }
+.duel-app .team-score-name > span { color: #92a4ca; }
+.duel-app .health-track { background: #2b385c; }
+.duel-app .health-track > div { box-shadow: 0 0 8px color-mix(in srgb, var(--team) 35%, transparent); }
+.duel-app .team-score-meta { color: #9aaed5; }
+.duel-app .versus > span { color: #8c9fcd; }
+.duel-app .versus time { color: #d2dcf5; }
+.duel-app .arena-stage { background: #10172d; border-color: #354267; }
+.duel-app .stage-tag { color: #c3d5f9; background: #14223edb; border-color: #6f96df50; }
+.duel-app .stage-tag svg { color: #7cddff; }
+.duel-app .stage-coordinate { color: #a4b8dc; }
+.duel-app .stage-coordinate i { background: #6580ab; }
+.duel-app .stage-tool { background: #15223ede; color: #a6bce7; border-color: #6685bb55; }
+.duel-app .stage-tool.active { color: #86e5ff; background: #234971d9; border-color: #6cc9ee70; }
+.duel-app .ready-caption > span { color: #d5dfff; }
+.duel-app .ready-caption > span > span { background: #8acfff; }
+.duel-app .ready-caption p { color: #b6c8ee; }
+.duel-app .side-zero { color: #89dfff; }
+.duel-app .side-one { color: #ffb39a; }
+.duel-app .arena-legend { background: #19213d; border-color: #303d61; color: #a6b7da; }
+.duel-app .legend-bounce { background: #ffab70; }
+.duel-app .legend-phase { border-color: #7ab7ff; }
+.duel-app .arena-legend .legend-center i { border-color: #a591ed; }
+.duel-app .arena-controls { background: #161d39; }
+
+.duel-app :is(.primary-button, .train-button) {
+  color: #fff;
+  background: linear-gradient(115deg, #4b7cf7, #8055e7);
+  border-color: #92a5ff85;
+  box-shadow: 0 4px 16px #536dff28, inset 0 1px 0 #ffffff1c;
+}
+.duel-app :is(.primary-button, .train-button):hover:not(:disabled) {
+  background: linear-gradient(115deg, #608fff, #9669f4);
+}
+.duel-app .simulation-controls label { color: #9eafd1; }
+.duel-app .simulation-controls select { background: #222d4d; border-color: #405174; }
+.duel-app .simulation-controls > .icon-button { background: transparent; }
+.duel-app .section-heading { color: #b3c3e7; }
+.duel-app .section-heading > span:last-child { color: #8fa4ce; }
+.duel-app .section-heading .live-dot { color: #7bdcff; }
+.duel-app .tactic-team-title > span { color: #98aad2; }
+.duel-app .strategy-options { background: #11172d; border-color: #35446a; }
+.duel-app .strategy-options > button { color: #a3b2d4; }
+.duel-app .court-select { border-color: #344266; }
+.duel-app .court-select label { color: #a6b5d8; }
+.duel-app .court-select select { background: #202b4c; border-color: #405174; }
+.duel-app .learned-tactic { color: #a8badd; }
+.duel-app .control-mode > div { color: #a994f3; }
+.duel-app .control-mode strong { color: #c9d6f5; }
+.duel-app .control-mode p { color: #9caed3; }
+.duel-app .control-mode > button { color: #bdcfff; border-color: #51669b; background: #4355ad14; }
+
+.duel-app .learning-panel {
+  background: linear-gradient(115deg, #24294e, #19223e 70%);
+  border-color: #6260a26b;
+  box-shadow: 0 8px 32px #05092422;
+}
+.duel-app .learning-steps { border-color: #414769; }
+.duel-app :is(.learning-steps > button, .learning-step) { color: #9caed8; }
+.duel-app :is(.learning-steps > button > span, .learning-step > span) { color: #afbfe9; border-color: #58638d; background: #101a351c; }
+.duel-app .learning-steps strong { color: #b8c8ed; }
+.duel-app .learning-steps small { color: #98aad2; }
+.duel-app .learning-steps .current > span { color: #e6ddff; border-color: #b095ff; background: #a879ff24; box-shadow: 0 0 16px #a879ff14; }
+.duel-app .learning-steps .current strong { color: #f0e9ff; }
+.duel-app .learning-steps > button > svg { color: #b7a0ff; }
+.duel-app .sample-status > span { background: #758fc7; }
+.duel-app .sample-status > .recording-dot { background: #ff987d; box-shadow: 0 0 12px #ff86684d; }
+.duel-app .sample-status strong { color: #e1e9ff; }
+.duel-app .sample-status small { color: #a4b3d5; }
+.duel-app .record-toggle { color: #a6e8ff; border-color: #5095bd70; background: #2b7dbe20; }
+.duel-app .record-toggle[aria-pressed=false] { color: #a1afcf; border-color: #465577; background: #1b2542; }
+.duel-app .epoch-control > label { color: #b4c2e6; }
+.duel-app .epoch-stepper { background: #121b35; border-color: #55688f; }
+.duel-app .epoch-stepper:focus-within { border-color: #9cafff; box-shadow: 0 0 0 2px #7c96ff20; }
+.duel-app .epoch-stepper > button { color: #bdd0ff; }
+.duel-app .epoch-stepper > button:hover:not(:disabled) { color: #fff; background: #344774; }
+.duel-app .epoch-stepper > input { color: #edf1ff; }
+.duel-app .learning-footnote { color: #93a5ce; }
+.duel-app .learning-footnote > button { color: #b9b1f4; }
+.duel-app .learning-notice { color: #c4c2ff; }
+.duel-app .training-progress > div { color: #c5cdff; }
+.duel-app .training-progress progress { accent-color: #9a84ff; }
+.duel-app .training-progress progress::-webkit-progress-bar { background: #333c64; }
+.duel-app .training-progress progress::-webkit-progress-value { background: linear-gradient(90deg, #598dff, #b18aff); }
+.duel-app .training-progress progress::-moz-progress-bar { background: #a38aff; }
+
+.duel-app :is(.decision-panel > .section-heading, .feed-panel > .section-heading, .gru-model-panel > .section-heading) { border-color: #354267; }
+.duel-app .robot-tabs { background: #10172e; border-color: #35446a; }
+.duel-app .robot-tabs > button { color: #9badd6; }
+.duel-app .robot-tabs > .selected { color: var(--team); }
+.duel-app .decision-orbit { border-color: #6079bf3d; }
+.duel-app .decision-orbit::before { border-color: #6789d335; }
+.duel-app .decision-orbit::after { border-color: #8b7cc83b; }
+.duel-app .decision-chip { background: #172343; border-color: #506ba16b; }
+.duel-app .decision-label { color: #a1b4da; }
+.duel-app .decision-content h3 { color: #edf1ff; }
+.duel-app .decision-content > p { color: #a5b5d6; }
+.duel-app :is(.shot-readout, .robot-stats) { border-color: #34446b; }
+.duel-app :is(.shot-readout > div + div, .robot-stats > div + div) { border-color: #34446b; }
+.duel-app .shot-readout > div > span { color: #9eafd4; }
+.duel-app .shot-readout strong { color: #e1e9ff; }
+.duel-app .shot-readout small { color: #9cafda; }
+.duel-app .power-meter > span { color: #a4b5d8; }
+.duel-app .power-meter b { color: #d1dafa; }
+.duel-app .power-meter > div { background: repeating-linear-gradient(90deg, #354469 0, #354469 6px, transparent 6px, transparent 9px); }
+.duel-app .robot-stats strong { color: #d1deff; }
+.duel-app .robot-stats span { color: #9cafd6; }
+.duel-app .feed-panel > .section-heading > svg { color: #9d9ff3; }
+.duel-app .feed-event { border-color: #35426780; }
+.duel-app .feed-event p { color: #bac8e8; }
+.duel-app .feed-event time { color: #8fa5d1; }
+.duel-app .feed-empty p { color: #b4c4e6; }
+.duel-app .feed-empty p > span { color: #8ca2cd; }
+.duel-app .signal-bars > i { background: #637fd1; }
+.duel-app .signal-bars > i:nth-child(3) { background: #ac8dff; }
+.duel-app .rule-note > div { color: #a995f0; }
+.duel-app .rule-note strong { color: #c5d0ed; }
+.duel-app .rule-note p { color: #9cafd3; }
+.duel-app .rule-note > button { color: #b3baff; }
+.duel-app .duel-footer { color: #8a9dc3; border-color: #303b60; }
+.duel-app .duel-footer > span:first-child > span { background: #7ca1ff; }
+.duel-app .duel-footer i { color: #667ba9; }
+
+.duel-app :is(.pause-overlay, .winner-overlay, .render-error) { background: #0b1235d9; }
+.duel-app .pause-overlay > svg { color: #ba9dff; }
+.duel-app .pause-overlay strong { color: #eeedff; }
+.duel-app .pause-overlay > span { color: #b1c1e5; }
+.duel-app :is(.pause-overlay > button, .winner-overlay > button) { color: #efeaff; background: #6043b8; border-color: #b79aff80; }
+.duel-app .winner-overlay h3 { color: #f2eeff; }
+.duel-app .winner-overlay p { color: #bdc9eb; }
+.duel-app .render-error { color: #b9ccff; }
+.duel-app .arena-panel.arena-fullscreen { background: #10172d; }
+.duel-app :is(.manual-panel, .arena-panel > .manual-panel) { color: #c7d7f6; background: #1a2443; border-color: #3a4c77; }
+.duel-app .manual-instructions { color: #a8bbdf; }
+.duel-app kbd { background: #2b3b62; border-color: #506896; color: #d5e2ff; }
+.duel-app .power-input { color: #b4c8ed; }
+.duel-app .power-input b { color: #e2eaff; }
+.duel-app .power-input input { accent-color: #8d9dff; }
+.duel-app .touch-cover { background: #54419b; color: #ebe5ff; border-color: #a18bdd80; }
+.duel-app .touch-fire { background: linear-gradient(145deg, #ffac79, #ff735f); color: #311c23; border-color: #ffd4a5b0; box-shadow: 0 4px 18px #ff77592b; }
+.duel-app .movement-joystick { background: radial-gradient(circle at 50% 45%, #3a50995e, #172744c9); border-color: #839de795; box-shadow: inset 0 0 28px #547bff13, 0 5px 20px #040a232b; color: #a5c0f5; }
+.duel-app .joystick-thumb { background: radial-gradient(circle at 36% 28%, #a6cfff, #6a92ec 70%); border-color: #c0d9ffb3; box-shadow: 0 4px 14px #050c39a3, inset 0 1px 0 #fff6; color: #17284c; }
+.duel-app .movement-joystick.is-active { border-color: #99dcff; box-shadow: 0 0 20px #4dcaff26, inset 0 0 24px #547bff19; }
+
+.duel-app .gru-model-panel > .section-heading > span:last-child { color: #c3b2ff; }
+.duel-app .gru-model-footer { border-color: #34456b; }
+.duel-app .gru-model-footer > span { color: #a2b5dd; }
+.duel-app .gru-model-footer > button { color: #b9b4ff; }
+.help-backdrop { background: #070b22d4; }
+.help-backdrop :is(.help-dialog, .duel-brain-dialog) { background: linear-gradient(150deg, #20294c, #151d37 65%); border-color: #6273a4; color: #e5ebff; }
+.help-backdrop :is(.help-dialog h2, .duel-brain-dialog h2) { color: #f0f1ff; }
+.help-backdrop .duel-brain-dialog h2 > span { color: #b79dff; }
+.help-backdrop :is(.help-dialog > p, .duel-brain-dialog > p) { color: #acbce0; }
+.help-backdrop .eyebrow { color: #a9baff; }
+.help-backdrop .eyebrow > span { background: #7e9dff; }
+.help-backdrop .help-close { color: #b9ccf6; background: #2a365a; border-color: #52668e; }
+.help-backdrop .help-rules > div > svg { color: #ac96ff; }
+.help-backdrop .help-rules h3 { color: #d7dfff; }
+.help-backdrop .help-rules p { color: #acbce0; }
+.help-backdrop .help-manual { background: #7987ff10; border-color: #6b7ab378; color: #beb0ff; }
+.help-backdrop .help-manual p { color: #bcc8e7; }
+.help-backdrop .primary-button { background: linear-gradient(115deg, #4b7cf7, #8055e7); color: #fff; border-color: #92a5ff85; }
+.help-backdrop .duel-expanded-brain { background: #10182f; border-color: #475c87; }
+.help-backdrop .motor-readouts { border-color: #44557c; }
+.help-backdrop .motor-readouts > div + div { border-color: #44557c; }
+.help-backdrop .motor-readouts span { color: #acbce0; }
+.help-backdrop .motor-readouts strong { color: #c5b5ff; }
+.help-backdrop .model-file-actions > span { color: #a8b8db; }
+.help-backdrop .model-file-actions button { background: #374a83; color: #e0e8ff; border-color: #6b83bf; }
+
+:is(.duel-app, .help-backdrop) .brain-gru { color: #a8b9da; }
+:is(.duel-app, .help-backdrop) .brain-view-toggle { background: #0b132b99; border-color: #546da44d; }
+:is(.duel-app, .help-backdrop) .brain-view-toggle button { color: #adbedf; }
+:is(.duel-app, .help-backdrop) .brain-view-toggle button[aria-pressed=true] { color: #c7e7ff; background: #5b8fff32; }
+:is(.duel-app, .help-backdrop) .brain-freeze { color: #c2cff0; border-color: #566d9b80; }
+:is(.duel-app, .help-backdrop) .brain-freeze[aria-pressed=true] { color: #e0d3ff; border-color: #ad8ef9; background: #9666f022; }
+:is(.duel-app, .help-backdrop) .brain-gru-chip { color: #d1bcff; border-color: #b38cff60; background: #ac7bff16; }
+:is(.duel-app, .help-backdrop) .brain-gate-control select { background: #202c4d; color: #c2d4f9; border-color: #637eae80; }
+:is(.duel-app, .help-backdrop) .brain-gate-control select option { background: #1c2747; color: #dce6ff; }
+:is(.duel-app, .help-backdrop) :is(.brain-inspection, .brain-awaiting) { color: #a1b3d7; }
+:is(.duel-app, .help-backdrop) .brain-explanation { color: #9bafd5; }
+:is(.duel-app, .help-backdrop) .brain-neuron-detail { background: #0a13305c; border-color: #516c9d5c; scrollbar-color: #647ac1 #111b37; }
+:is(.duel-app, .help-backdrop) .brain-cell-values strong { color: #c6dcff; }
+:is(.duel-app, .help-backdrop) .brain-bias { color: #a8bcdf; }
+:is(.duel-app, .help-backdrop) .brain-weight-header { color: #8ea7d5; }
+
+@media (max-width: 600px) {
+  .duel-app .training-controls { border-color: #414e78; }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .duel-app .arena-fullscreen > .arena-heading { background: linear-gradient(#0b1434eb, #0b143400); }
+  .duel-app .arena-fullscreen > .scoreboard { background: #131f3edb; border-color: #7b98d94d; }
+  .duel-app .arena-fullscreen .phase-badge { background: #1c2a4ee0; }
+  .duel-app .arena-fullscreen .expand-button { background: #1c2a4ee0; border-color: #7997d670; }
+  .duel-app .arena-fullscreen .reset-button { background: #1c2a4ee8; }
+  .duel-app .arena-fullscreen > .arena-controls { background: transparent; }
+  .duel-app .arena-fullscreen > .manual-panel { background: transparent; border-color: transparent; }
+  .duel-app .arena-fullscreen .manual-actions { background: #172442eb; border-color: #7d99d770; }
+}

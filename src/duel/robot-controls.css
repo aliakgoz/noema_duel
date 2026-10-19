@@ -1,0 +1,60 @@
+.duel-app .robot-control-monitor { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 20px; border-top: 1px solid #8799d024; background: #131b35; color: #dce5ff; pointer-events: none; user-select: none; }
+.robot-movement-readout { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.robot-stick { position: relative; flex: 0 0 76px; width: 76px; height: 76px; border: 1px solid #879bdf66; border-radius: 50%; background: radial-gradient(circle, #30417577, #101a35d9); box-shadow: inset 0 0 0 5px #a9bbff06; }
+.robot-stick::before, .robot-stick::after { content: ''; position: absolute; top: 50%; left: 50%; background: #9cb0f42b; transform: translate(-50%, -50%); }
+.robot-stick::before { width: 1px; height: 60px; }
+.robot-stick::after { width: 60px; height: 1px; }
+.robot-stick-ring { position: absolute; inset: 14px; border: 1px dashed #9cb0f42b; border-radius: 50%; }
+.robot-stick-knob { position: absolute; z-index: 1; top: 50%; left: 50%; width: 24px; height: 24px; border: 1px solid #d7dbffb0; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #b4a7ff, #7765df 70%); box-shadow: 0 3px 8px #02051c88; }
+.robot-movement-copy { display: flex; flex-direction: column; gap: 5px; white-space: nowrap; }
+.robot-movement-copy > span { color: #a59fcf; font-size: 7px; letter-spacing: 1px; font-weight: 700; }
+.robot-movement-copy > strong { font-size: 12px; font-weight: 650; }
+.robot-movement-copy > strong > small { margin-left: 4px; color: #b7a9ff; font-size: 10px; font-variant-numeric: tabular-nums; }
+.robot-movement-copy > small { color: #98a8ce; font-size: 8px; font-variant-numeric: tabular-nums; }
+.robot-movement-copy [data-testid="robot-blocked"] { color: #ffbc92; }
+.robot-command-readouts { display: flex; gap: 8px; }
+.robot-command { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 95px; min-height: 55px; padding: 9px 10px; overflow: hidden; border: 1px solid #93a1d330; border-radius: 10px; background: #1b2544db; color: #9aa9d0; }
+.robot-command > div { display: flex; align-items: center; gap: 5px; }
+.robot-command strong { font-size: 10px; font-weight: 600; }
+.robot-command i { width: 5px; height: 5px; margin-left: auto; border-radius: 50%; background: #667193; }
+.robot-command > small { font-size: 8px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.robot-command[data-requested="true"] { border-color: #b5a2ff99; color: #e3d9ff; background: #44376be6; }
+.robot-command[data-requested="true"] i { background: #cebaff; box-shadow: 0 0 7px #b8a0ff88; }
+.robot-command-fire[data-requested="true"] { border-color: #ffac95b0; color: #ffd7c9; background: #663d50e6; }
+.robot-command-fire[data-requested="true"] i { background: #ffb69c; box-shadow: 0 0 7px #ff997888; }
+.robot-command[data-executed="true"] { box-shadow: inset 0 0 0 1px #ead6ff6b; }
+.robot-command-reload { position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #7c6c902b; }
+.robot-command-reload > span { display: block; height: 100%; background: #ffb49c; }
+@media (max-width: 600px) {
+  .duel-app .robot-control-monitor { padding: 10px 12px; gap: 8px; }
+  .robot-movement-readout { gap: 7px; }
+  .robot-movement-copy > strong { font-size: 10px; }
+  .robot-movement-copy > span { font-size: 6px; letter-spacing: .7px; }
+  .robot-command-readouts { gap: 6px; }
+  .robot-command { min-width: 76px; padding: 8px; }
+  .robot-command strong { font-size: 9px; }
+  .robot-command > small { font-size: 7px; }
+}
+@media (max-width: 359px) {
+  .robot-movement-readout { flex-direction: column; gap: 5px; }
+  .robot-movement-copy { gap: 4px; }
+  .robot-movement-copy > span, .robot-movement-copy > small { display: none; }
+  .robot-command { min-width: 68px; padding: 7px; }
+  .robot-command-readouts { gap: 4px; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .duel-app .arena-fullscreen > .robot-control-monitor { position: absolute; z-index: 5; inset: auto max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); padding: 0; border: 0; background: transparent; }
+  .arena-fullscreen .robot-movement-copy { padding: 7px; border-radius: 7px; background: #111b32d9; }
+  .arena-fullscreen .robot-movement-copy > strong { font-size: 10px; }
+  .arena-fullscreen .robot-command { min-width: 83px; min-height: 55px; padding: 8px; background: #17213bed; }
+  .arena-fullscreen .robot-command[data-requested="true"] { background: #44376bf5; }
+  .arena-fullscreen .robot-command-fire[data-requested="true"] { background: #663d50f5; }
+}
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 700px) {
+  .arena-fullscreen .robot-movement-readout { gap: 0; }
+  .arena-fullscreen .robot-movement-copy { position: absolute; bottom: 82px; left: 0; padding: 5px 6px; }
+  .arena-fullscreen .robot-movement-copy > small { display: none; }
+  .arena-fullscreen .robot-movement-copy > strong > small { display: inline; margin-left: 3px; }
+  .arena-fullscreen .robot-command-readouts { flex-direction: column; gap: 5px; }
+  .arena-fullscreen .robot-command { min-width: 88px; min-height: 43px; padding: 6px 8px; gap: 4px; }
+}

@@ -1,0 +1,48 @@
+.duel-app .arena-stage .movement-zone {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+  overflow: visible;
+}
+
+/* Preserve analog travel measurements without painting a control over the arena. */
+.duel-app .arena-stage .movement-zone .movement-joystick[data-testid] {
+  --joystick-size: 110px;
+  --joystick-thumb-size: 44px;
+  position: absolute;
+  width: var(--joystick-size);
+  height: var(--joystick-size);
+  margin: 0;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.duel-app .arena-stage .movement-zone .joystick-thumb {
+  width: var(--joystick-thumb-size);
+  height: var(--joystick-thumb-size);
+  pointer-events: none;
+}
+
+/* Siper remains on the right after removing the old fixed joystick column. */
+.duel-app .arena-panel > .manual-panel .touch-controls { justify-content: flex-end; }
+
+@media (max-width: 600px) {
+  .duel-app .arena-stage .movement-zone .movement-joystick[data-testid] { --joystick-size: 106px; }
+}
+
+@media (max-width: 359px), (max-height: 450px) and (orientation: landscape) {
+  .duel-app .arena-stage .movement-zone .movement-joystick[data-testid] { --joystick-size: 96px; --joystick-thumb-size: 40px; }
+}

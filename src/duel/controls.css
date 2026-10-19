@@ -1,0 +1,35 @@
+.control-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.arena-panel>.manual-panel{padding:16px 22px;background:#131b35;border-color:#344064}
+.arena-panel>.manual-panel .touch-controls{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:600px;margin-top:14px;flex-wrap:nowrap}
+.joystick-control{display:flex;flex-direction:column;align-items:center;flex-shrink:0;gap:8px;user-select:none;-webkit-user-select:none}
+.movement-joystick{--joystick-size:110px;--joystick-thumb-size:44px;position:relative;width:var(--joystick-size);height:var(--joystick-size);flex-shrink:0;isolation:isolate;border:1px solid #667ce980;border-radius:50%;background:radial-gradient(circle at 50% 40%,#26376a88,#0c1429c9 75%);box-shadow:inset 0 0 0 7px #8497ff08,inset 0 0 24px #0005,0 5px 22px #03091d60;touch-action:none;cursor:grab;outline-offset:5px;transition:border-color .15s,box-shadow .15s}
+.movement-joystick:before,.movement-joystick:after{content:'';position:absolute;left:50%;top:50%;background:#8d9ee221;pointer-events:none;transform:translate(-50%,-50%)}
+.movement-joystick:before{width:1px;height:calc(100% - 20px)}
+.movement-joystick:after{height:1px;width:calc(100% - 20px)}
+.movement-joystick.is-active{cursor:grabbing;border-color:#88a0ff;box-shadow:inset 0 0 0 7px #8497ff10,inset 0 0 24px #0005,0 0 24px #687fff26}
+.movement-joystick[aria-disabled=true]{opacity:.45;cursor:default}
+.joystick-orbit{position:absolute;inset:21%;border:1px dashed #91a1e12b;border-radius:50%;pointer-events:none}
+.joystick-thumb{position:absolute;left:50%;top:50%;z-index:1;width:var(--joystick-thumb-size);height:var(--joystick-thumb-size);display:grid;place-items:center;border:1px solid #b0c0ff99;border-radius:50%;background:radial-gradient(circle at 35% 25%,#768fff,#415bc6 65%,#2e4090);box-shadow:inset 0 1px 4px #d6e5ff55,0 4px 12px #02071988;pointer-events:none;will-change:transform}
+.joystick-thumb>span{width:10px;height:10px;border:1px solid #e2e8ff99;border-radius:50%;box-shadow:0 0 10px #adc1ff44}
+.joystick-caption{font-size:8px;letter-spacing:1.5px;font-weight:700;color:#96a7dd}
+.manual-actions{min-width:0;max-width:350px;flex:1;display:flex;flex-direction:column;gap:14px}
+.arena-panel>.manual-panel .power-input{display:grid;grid-template-columns:1fr auto;gap:7px;max-width:none;font-size:9px;color:#b4bee3;letter-spacing:.8px}
+.power-input>b{font-variant-numeric:tabular-nums;font-size:11px;color:#c6d1ff;font-weight:600}
+.power-input>input{width:100%;height:24px;margin:0;grid-column:1/-1;touch-action:pan-y;accent-color:#8b9cff;cursor:pointer}
+.manual-action-buttons{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.manual-action-buttons>.touch-cover,.manual-action-buttons>.touch-fire{min-height:46px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 15px;border-radius:10px;touch-action:none;user-select:none;-webkit-user-select:none;font-size:11px;font-weight:600}
+.manual-action-buttons>.touch-cover{flex:1;border:1px solid #6a7dd15c;background:#232e53;color:#c3cfff}
+.manual-action-buttons>.touch-fire{flex:1.2;min-width:88px;border:1px solid #ffb4a680;background:linear-gradient(135deg,#ff8c74,#f46081);color:#29172d;box-shadow:0 4px 18px #f36c7e22;font-weight:800}
+.manual-action-buttons>.touch-fire:active{transform:scale(.96);background:#ffb0a1}
+.manual-action-buttons>.touch-cover:active{background:#384978}
+.manual-instructions{color:#8d9dc6}
+.tap-to-fire-hint{flex:1.3;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:8px 10px;border:1px solid #ffac8f60;border-radius:10px;background:#ff987812;color:#ffba9f;user-select:none;pointer-events:none}
+.tap-to-fire-hint>span{display:flex;align-items:center;justify-content:center;gap:5px;font-size:10px;font-weight:600;white-space:nowrap}
+.tap-to-fire-hint>small{font-size:8px;text-align:center;color:#c1c9e6;font-variant-numeric:tabular-nums}
+.shot-reload-track{height:3px;background:#7c6c902b;border-radius:3px;overflow:hidden}
+.shot-reload-track>span{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#ff9679,#c8a3ff);transition:width .1s linear}
+.manual-action-buttons>.touch-cover{min-width:72px}
+.tap-to-fire-hint{min-width:104px;min-height:54px}
+@media(max-width:600px){.tap-to-fire-hint{padding:8px;gap:4px;min-width:98px}.tap-to-fire-hint>span{font-size:9px;gap:4px}.tap-to-fire-hint>span>svg{width:13px}.tap-to-fire-hint>small{font-size:7px}}
+@media(max-width:600px){.arena-panel>.manual-panel{padding:14px 15px}.arena-panel>.manual-panel .touch-controls{gap:20px;margin-top:12px}.movement-joystick{--joystick-size:106px;--joystick-thumb-size:44px}.manual-actions{gap:9px}.manual-action-buttons{gap:8px}.manual-action-buttons>.touch-cover,.manual-action-buttons>.touch-fire{min-height:46px;padding:9px 10px;font-size:10px;gap:5px}.manual-action-buttons>.touch-cover>svg{width:16px}.manual-action-buttons>.touch-fire{min-width:74px}.manual-action-buttons>.touch-fire>svg{width:19px}.arena-panel>.manual-panel .power-input{font-size:8px}.manual-instructions span:first-child{display:none}}
+@media(max-width:359px){.arena-panel>.manual-panel .touch-controls{gap:15px}.movement-joystick{--joystick-size:96px;--joystick-thumb-size:40px}.manual-action-buttons>.touch-cover,.manual-action-buttons>.touch-fire{padding:9px 8px;font-size:9px}.manual-action-buttons>.touch-fire{min-width:63px}}

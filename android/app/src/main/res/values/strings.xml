@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NOEMA Duel</string>
+    <string name="title_activity_main">NOEMA Duel</string>
+    <string name="package_name">studio.noema.duel</string>
+    <string name="custom_url_scheme">studio.noema.duel</string>
+</resources>

@@ -1,0 +1,160 @@
+/* Keep one live arena when entering fullscreen or rotating the phone. */
+body.duel-dialog-open { overflow: hidden !important; }
+.arena-panel.arena-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #0b161b;
+}
+
+.arena-fullscreen > .arena-heading {
+  min-height: calc(50px + env(safe-area-inset-top));
+  height: auto;
+  padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+}
+
+.arena-fullscreen .expand-button,
+.arena-fullscreen .reset-button,
+.arena-fullscreen .primary-button,
+.arena-fullscreen .simulation-controls > .icon-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.arena-fullscreen .expand-button { margin-left: 3px; }
+.arena-fullscreen > .scoreboard { padding: 10px max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left)); }
+.arena-fullscreen > .arena-stage { flex: 1 1 0; height: auto; min-height: 0; }
+.arena-fullscreen > .arena-legend { display: none; }
+.arena-fullscreen > .arena-controls { padding: 8px max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left)); }
+.arena-fullscreen .stage-tool { width: 40px; height: 40px; }
+.arena-fullscreen .stage-coordinate { display: none; }
+.arena-fullscreen > .manual-panel {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: none;
+  padding: 10px max(14px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+  border: 0;
+  border-top: 1px solid #2d4541;
+  border-radius: 0;
+  background: #102024;
+}
+.arena-fullscreen > .manual-panel .manual-instructions { display: none; }
+.arena-fullscreen > .manual-panel .touch-controls { width: 100%; max-width: 640px; margin: 0 auto; }
+
+/* In landscape, controls occupy the corners while the court fills the screen. */
+@media (orientation: landscape) and (max-height: 600px) {
+  .arena-fullscreen > .arena-stage { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .arena-fullscreen > .arena-heading {
+    position: absolute;
+    z-index: 5;
+    inset: 0 0 auto;
+    min-height: calc(56px + env(safe-area-inset-top));
+    padding-top: max(6px, env(safe-area-inset-top));
+    border: 0;
+    background: linear-gradient(#08151de8, #08151d00);
+    pointer-events: none;
+  }
+  .arena-fullscreen > .arena-heading > div:first-child { display: none; }
+  .arena-fullscreen .phase-badge { font-size: 8px; padding: 7px 9px; background: #102226d9; }
+  .arena-fullscreen .expand-button { margin-left: auto; background: #102226db; border-color: #59777555; pointer-events: auto; }
+  .arena-fullscreen > .scoreboard {
+    position: absolute;
+    z-index: 5;
+    top: max(9px, env(safe-area-inset-top));
+    left: 50%;
+    width: min(54vw, 430px);
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr);
+    gap: 12px;
+    padding: 8px 12px;
+    border: 1px solid #3a56524d;
+    border-radius: 8px;
+    background: #0c1b21df;
+    pointer-events: none;
+  }
+  .arena-fullscreen .team-avatar,
+  .arena-fullscreen .team-score-name > span,
+  .arena-fullscreen .team-score-meta > span:first-child,
+  .arena-fullscreen .versus > span { display: none; }
+  .arena-fullscreen .team-score-body { position: relative; }
+  .arena-fullscreen .team-score-name strong { font-size: 9px; letter-spacing: .8px; }
+  .arena-fullscreen .team-score-meta { position: absolute; top: 1px; right: 0; }
+  .arena-fullscreen .team-score-meta > span:last-child { font-size: 6px; letter-spacing: 0; }
+  .arena-fullscreen .team-score-meta b { font-size: 8px; }
+  .arena-fullscreen .health-track { height: 4px; margin: 7px 0 0; }
+  .arena-fullscreen .versus { gap: 0; }
+  .arena-fullscreen .versus time { font-size: 10px; }
+  .arena-fullscreen .stage-top,
+  .arena-fullscreen .court-side-label,
+  .arena-fullscreen .ready-caption { display: none; }
+  .arena-fullscreen .stage-tools { top: max(64px, calc(env(safe-area-inset-top) + 56px)); right: max(12px, env(safe-area-inset-right)); gap: 7px; }
+  .arena-fullscreen > .arena-controls {
+    position: absolute;
+    z-index: 6;
+    left: 50%;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    padding: 0;
+    background: transparent;
+  }
+  .arena-fullscreen .play-controls { gap: 8px; }
+  .arena-fullscreen .play-controls > .primary-button { padding: 0 12px; font-size: 10px; }
+  .arena-fullscreen .reset-button { background: #12272ce8; }
+  .arena-fullscreen .simulation-controls { display: none; }
+  .arena-fullscreen > .manual-panel {
+    position: absolute;
+    z-index: 5;
+    inset: auto max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    pointer-events: none;
+  }
+  .arena-fullscreen > .manual-panel .touch-controls { max-width: none; align-items: end; justify-content: space-between; gap: 16px; }
+  .arena-fullscreen .movement-joystick { --joystick-size: 102px; --joystick-thumb-size: 42px; pointer-events: auto; background-color: #10272bce; }
+  .arena-fullscreen .manual-actions { flex: 0 0 180px; width: 180px; max-width: 180px; padding: 9px; border: 1px solid #49665a70; border-radius: 14px; background: #102328e8; pointer-events: auto; }
+  .arena-fullscreen .manual-actions .power-input { max-width: none; font-size: 8px; }
+  .arena-fullscreen .manual-action-buttons { gap: 8px; }
+  .arena-fullscreen .touch-cover,
+  .arena-fullscreen .touch-fire { min-height: 44px; padding: 7px 10px; font-size: 9px; }
+  .arena-fullscreen .touch-fire { flex: 1; }
+  .arena-fullscreen .manual-actions { flex-basis:190px; width:190px; max-width:190px; }
+  .arena-fullscreen .tap-to-fire-hint { padding:7px 6px; min-width:90px; }
+  .arena-fullscreen .tap-to-fire-hint>span { font-size:8px; gap:3px; }
+  .arena-fullscreen .tap-to-fire-hint>small { font-size:7px; }
+  .arena-fullscreen .pause-overlay,
+  .arena-fullscreen .winner-overlay { padding: 60px 140px 64px; }
+  .arena-fullscreen .pause-overlay > svg,
+  .arena-fullscreen .winner-overlay > svg { display: none; }
+  .arena-fullscreen .pause-overlay strong { font-size: 20px; }
+  .arena-fullscreen .pause-overlay > span { font-size: 9px; }
+  .arena-fullscreen .pause-overlay > button,
+  .arena-fullscreen .winner-overlay > button { margin-top: 12px; min-height: 44px; }
+}
+
+@media (orientation: landscape) and (max-height: 350px) {
+  .arena-fullscreen .movement-joystick { --joystick-size: 94px; --joystick-thumb-size: 40px; }
+  .arena-fullscreen .manual-actions { padding: 8px; }
+  .arena-fullscreen .stage-tools { flex-direction: row; }
+  .arena-fullscreen .stage-tool { width: 38px; height: 38px; }
+  .arena-fullscreen .winner-overlay h3 { font-size: 24px; margin-top: 0; }
+  .arena-fullscreen .winner-overlay > span { font-size: 7px; letter-spacing: 1px; }
+  .arena-fullscreen .winner-overlay p { margin-top: 6px; font-size: 9px; }
+}

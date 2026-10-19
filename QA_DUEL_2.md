@@ -1,0 +1,16 @@
+# NOEMA Duel 2.0.0 — 17 Ekim 2026
+
+- Güncel Android derlemesi: web build + Capacitor copy + `assembleDebug bundleRelease` başarılı. Tam derleme için `scripts/build-android.ps1` kullanılabilir.
+- APK: `releases/NOEMA-Duel-2.0.0-android.apk`, sürüm 2.0.0 / kod6, `studio.noema.robot`, 5.335.681 bayt. SHA256: `881610d5e6d0f73fd8e446dc7b50462a2985eda149c9841b8f78eff83ecb48a3`.
+- APK imzası, önceki sürümle sertifika eşitliği, ZIP bütünlüğü ve hizalama doğrulandı. Paket içindeki18 web dosyasının tamamı güncel `dist` ile aynı SHA256 değerine sahip; gerçek GRU eğitim Worker'ı paket içinde. Rapor: `artifacts/duel/apk-verification.json`.
+- Motorun39 testi geçti: 30×18 saha,240HP,4,8m/sn hareket, yavaş atış ve hareketli hedefi önden kesme, sekmeler dahil45m menzil, güce bağlı olmadan menzil bitişi,1,25sn yeniden atış, birden çok eşzamanlı taş, siper, fizik sınırları ve canla maç sonucu.
+- GRU'nun10 testi geçti: tam77.926 gerçek parametre,96 hücre, bellek tüketen tek karar ve belleği ilerletmeyen önizleme, gerçek BPTT sayısal gradyanı, görünen ipucu silindikten sonra belleğe dayalı davranış, eğitimde görülmeyen sürekli hareket/nişan/güç/ateş, ±π açı sınırı, nadir siper kullanımı, seri kayıt, iptal ve varsayılan 1 turdan seçilen tur sayısıyla devam etme. Motorla birlikte toplam49 test başarılı; ayrı çalışmanın süresi42,55sn. Kayıt: `artifacts/duel/duel-unit-tests.txt`.
+- Beyin arayüzü: gerçek parametre sayısı,96 bellek değeri, kapı seçimi, gerçek ağırlık seçimi ve dondurulmuş görüntü doğrulandı. 390px mobil model penceresi taşmıyor. Rapor: `artifacts/duel/gru.json`.
+- Gerçek WebGL öğretme → Worker eğitimi → modelden oynama → yeniden yükleme akışı geçti. İlk basış 44 örneği tam bir kez işledi; seçilen 99 ek tur aynı modelde toplam 4.400 eğitim adımına ulaştı. Robot gösterilen hareketi ve ateşi tekrarladı; kendi kararlarını öğretmen örneği olarak kaydetmedi. Tarayıcı hatası yok. Mobil 390/768px kontrolleri geçti. Rapor: `artifacts/duel/duel.json`.
+- Üretim paketinde 1 tur varsayılanı, − / + düğmeleri, 1–500 sınırları, panel fontu ve renkleri, eşit kontrol yükseklikleri, 1440/390/320px yerleşim ve taşmama doğrulandı. Ekran görüntüleri: `artifacts/duel/training-controls-*.png`; rapor: `artifacts/duel/epochs.json`.
+- Mobil işlem bütçesi deneyi: Chrome CPU4× yavaşlatma altında250 gerçek GRU ileri adımı; medyan2,2ms, ortalama5,42ms, %95 dilimi25ms. Karar aralığı100ms. Bu bir fiziksel telefon ölçümü değildir.
+- Görsel inceleme: NOEMA ARENA tabelası, tribünler, takım panoları ve çevre bitkileri; yavaş, dönen taş ve atış efektleri görüntüde doğrulandı. Gelecek mermi yolunu gösteren kontrol kaldırıldı.
+
+Tam depo testi sırasında, eski akademinin `src/ml/dataset.test.ts` içindeki uzun aktarım kıyaslaması 60 saniyelik test sınırında zaman aşımına uğradı. Tam depo çalışması bu nedenle başarılı sayılmadı; devam eden eski eğitim işleminin yeni oyun testlerini etkilememesi için çalışma durduruldu. Kayıt: `artifacts/duel/unit-tests.txt`. Yeni kortun motor ve GRU testleri ayrı çalıştırılır: `artifacts/duel/duel-unit-tests.txt`.
+
+Fiziksel Android cihaz / emülatör bağlı olmadığından cihaz üzerinde kurulum ve pil/FPS ölçümü yapılmadı. APK imzalı ve kurulabilir biçimde üretilip paket düzeyinde doğrulandı.

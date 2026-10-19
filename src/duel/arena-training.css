@@ -1,0 +1,103 @@
+/* Training opens from the arena toolbar and takes no room while closed. */
+.duel-app .stage-tools { z-index: 6; }
+.duel-app .stage-tool.training-toggle { display: flex; flex-direction: column; justify-content: center; gap: 2px; height: 44px; border-color: #b39cf86b; color: #e0d4ff; background: #352955ed; }
+.duel-app .training-toggle > svg { width: 14px; height: 14px; }
+.duel-app .training-toggle > span { font-size: 7px; font-weight: 650; line-height: 1.1; white-space: nowrap; }
+.duel-app .training-toggle[aria-expanded="true"] { background: #6650a4; border-color: #ccb8ff9c; }
+.duel-app .training-toggle.is-training { color: #f0e7ff; border-color: #c4a5ff; }
+.duel-app .training-toggle.is-training > svg { animation: duel-training-spin 1.6s linear infinite; }
+.duel-app .arena-training-popover {
+  position: absolute; z-index: 7; top: 46px; right: 64px;
+  width: min(280px, calc(100% - 80px)); max-height: calc(100% - 58px);
+  overflow: auto; overscroll-behavior: contain; scroll-padding-top: 48px; border: 1px solid #a99be94a; border-radius: 12px;
+  background: #17203bf5; box-shadow: 0 12px 32px #03081c55; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  scrollbar-width: thin; scrollbar-color: #8d7cb866 transparent;
+}
+.duel-app .arena-training-popover[hidden] { display: none !important; }
+.duel-app .arena-training-bar { min-width: 0; padding: 0 10px 10px; }
+.duel-app .arena-training-header {
+  position: sticky; z-index: 1; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin: 0 -10px 4px; padding: 0 0 0 10px; min-height: 44px; background: #17203bf7;
+}
+.duel-app .arena-training-header > div { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.duel-app .arena-training-header > div > svg { width: 14px; height: 14px; color: #b6a6f0; }
+.duel-app .arena-training-header strong { font-size: 11px; font-weight: 650; color: #ece7ff; }
+.duel-app .training-close {
+  display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 9px;
+  background: transparent; color: #b5bed9; touch-action: manipulation;
+}
+.duel-app .training-close > svg { width: 17px; height: 17px; }
+.duel-app .training-close:hover { background: #ffffff09; color: #fff; }
+.duel-app .arena-training-main { display: flex; flex-direction: column; align-items: stretch; gap: 8px; min-width: 0; }
+.duel-app .arena-training-meta { display: flex; align-items: center; gap: 5px; min-width: 0; color: #a6b3d1; font-size: 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.duel-app .arena-training-meta > svg { width: 13px; height: 13px; color: #b6a6f0; }
+.duel-app .arena-training-bar .training-controls { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 8px; margin: 0; padding: 0; border: 0; }
+.duel-app .arena-training-bar .epoch-control { flex: 0 0 auto; gap: 5px; }
+.duel-app .arena-training-bar .epoch-control > label { max-width: 28px; font-size: 8px; line-height: 1.25; color: #acb9d8; white-space: normal; }
+.duel-app .arena-training-bar .epoch-stepper { height: 36px; padding: 3px; border-color: #ffffff24; border-radius: 7px; background: #11172b; }
+.duel-app .arena-training-bar .epoch-stepper > button { width: 26px; height: 28px; }
+.duel-app .arena-training-bar .epoch-stepper > input { width: 29px; height: 28px; line-height: 28px; font-size: 12px; }
+.duel-app .arena-training-bar .train-button { display: flex; align-items: center; justify-content: center; flex: 1 1 auto; min-width: 0; min-height: 44px; padding: 0 8px; gap: 5px; border-radius: 8px; color: #f7f5ff; font-size: 9px; line-height: 1.2; }
+.duel-app .arena-training-bar .train-button > svg { width: 14px; height: 14px; }
+.duel-app .arena-training-bar .train-button:disabled { opacity: .45; }
+.duel-app .arena-training-bar .training-progress { padding: 8px 0 0; }
+.duel-app .arena-training-bar .training-progress > div { margin-bottom: 5px; font-size: 8px; gap: 8px; }
+.duel-app .arena-training-bar .training-progress progress { height: 3px; }
+.duel-app .arena-training-bar .learning-notice { margin: 0; padding: 7px 0 0; color: #c7c3ef; font-size: 9px; line-height: 1.4; overflow-wrap: anywhere; }
+.duel-app .training-panel-live { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.duel-app .arena-model-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; padding: 0 11px; border: 1px solid #a99be94a; border-radius: 7px; background: #332c50; color: #dbd3ff; font-size: 10px; font-weight: 600; white-space: nowrap; touch-action: manipulation; }
+.duel-app .arena-model-toggle:hover:not(:disabled) { background: #453965; }
+.duel-app .arena-model-toggle > svg { width: 14px; height: 14px; }
+.duel-app .arena-model-short { display: none; }
+.duel-app .arena-fullscreen .arena-training-popover { top: 49px; right: 67px; max-height: calc(100% - 61px); }
+@media (max-width: 600px) {
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-training-popover { top: 41px; right: 54px; width: min(280px, calc(100% - 66px)); max-height: calc(100% - 53px); }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-model-toggle { min-height: 35px; padding: 0 8px; gap: 4px; font-size: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-model-label { display: none; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-model-short { display: inline; }
+}
+@media (max-width: 359px) {
+  .duel-app .arena-training-bar .epoch-control > label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .duel-app .arena-training-bar .epoch-stepper > button { width: 24px; }
+  .duel-app .arena-training-bar .epoch-stepper > input { width: 27px; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .duel-app .arena-fullscreen .arena-training-popover { top: max(64px, calc(env(safe-area-inset-top) + 56px)); right: max(64px, calc(env(safe-area-inset-right) + 52px)); max-height: calc(100% - 76px - env(safe-area-inset-top)); }
+  .duel-app .arena-fullscreen .arena-model-toggle { min-height: 44px; padding: 0 9px; background: #302944ed; }
+  .duel-app .arena-fullscreen .arena-model-label { display: none; }
+  .duel-app .arena-fullscreen .arena-model-short { display: inline; }
+  .duel-app .arena-fullscreen .play-controls { gap: 6px; }
+  .duel-app .arena-fullscreen .play-controls > .primary-button { min-height: 44px; padding: 0 10px; gap: 5px; font-size: 9px; }
+  .duel-app .arena-fullscreen .reset-button { width: 42px; min-width: 42px; }
+}
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 700px) { .duel-app .arena-fullscreen > .arena-controls { left: calc(50% - 32px); } }
+@media (orientation: landscape) and (max-height: 350px) {
+  .duel-app .arena-fullscreen .stage-tool.training-toggle { width: 38px; height: 38px; }
+  .duel-app .arena-fullscreen .arena-training-popover { top: max(110px, calc(env(safe-area-inset-top) + 102px)); right: max(12px, env(safe-area-inset-right)); width: min(280px, calc(100% - 24px)); max-height: calc(100% - 122px - env(safe-area-inset-top)); }
+  .duel-app .arena-fullscreen .arena-training-header { min-height: 40px; }
+  .duel-app .arena-fullscreen .arena-training-main { gap: 6px; }
+  .duel-app .arena-fullscreen .arena-training-bar .learning-notice { font-size: 8px; line-height: 1.35; }
+}
+@keyframes duel-training-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .duel-app .training-toggle.is-training > svg { animation: none; } }
+@media (orientation: portrait) and (max-width: 600px) {
+  .duel-app .arena-panel > .arena-controls { gap: 6px; padding-left: 8px; padding-right: 8px; }
+  .duel-app .arena-panel .play-controls { gap: 4px; }
+  .duel-app .arena-panel .play-controls > .primary-button { padding-left: 8px; padding-right: 8px; gap: 4px; font-size: 9px; }
+  .duel-app .arena-panel .arena-model-toggle { padding-left: 8px; padding-right: 8px; gap: 4px; font-size: 9px; }
+  .duel-app .arena-panel .arena-model-label { display: none; }
+  .duel-app .arena-panel .arena-model-short { display: inline; }
+  .duel-app .arena-panel .simulation-controls { gap: 4px; }
+  .duel-app .arena-panel .simulation-controls label > span { display: none; }
+  .duel-app .arena-panel .simulation-controls select { min-width: 44px; padding-left: 4px; padding-right: 4px; }
+}
+@media (orientation: portrait) and (max-width: 359px) {
+  .duel-app .arena-panel .simulation-controls > label { display: none; }
+}
+/* During training the match is paused, so the actual run can use a larger panel. */
+.duel-app .arena-panel .arena-training-popover.has-training-details {
+  top: 12px; right: 64px; width: min(380px, calc(100% - 80px)); max-height: calc(100% - 24px);
+}
+@media (orientation: portrait) and (max-width: 600px) {
+  .duel-app .arena-panel .arena-training-popover.has-training-details { right: 54px; width: min(380px, calc(100% - 66px)); }
+}

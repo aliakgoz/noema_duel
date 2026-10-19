@@ -1,0 +1,241 @@
+/* The arena leads; training and inspection stay within reach. */
+.duel-app {
+  --duel-bg: #0d1020;
+  --duel-surface: #171c31;
+  --duel-surface-raised: #202740;
+  --duel-line: #ffffff18;
+  --duel-line-soft: #ffffff0d;
+  --duel-text: #eef1fb;
+  --duel-muted: #a1abc3;
+  --duel-dim: #7e8ba7;
+  background: radial-gradient(ellipse at 50% -30%, #4b4a9035, transparent 65%), var(--duel-bg);
+}
+
+.duel-app [hidden] { display: none !important; }
+.duel-app .stage-tools { z-index: 6; }
+.duel-app .duel-topbar {
+  height: 64px;
+  padding: 0 max(28px, calc((100vw - 1484px) / 2));
+  gap: 28px;
+  background: #101425e8;
+  border-color: var(--duel-line-soft);
+}
+.duel-app .duel-brand strong { font-size: 18px; letter-spacing: 2px; }
+.duel-app .duel-brand strong > span { font-size: 8px; padding: 4px 6px; border-color: #a18af439; color: #c5b6fa; }
+.duel-app .duel-topbar nav { gap: 26px; }
+.duel-app .duel-topbar nav > button { font-size: 11px; font-weight: 600; color: #8e9bb9; }
+.duel-app .duel-topbar nav > .nav-active { color: #f0f2ff; }
+.duel-app .nav-active::after { height: 2px; background: #9684fa; box-shadow: none; }
+.duel-app .duel-topbar > .icon-button { width: 36px; height: 36px; margin-left: auto; background: transparent; border-color: #ffffff14; color: #a8b4d0; }
+.duel-app .local-badge { display: none; }
+.duel-app .duel-main { max-width: 1540px; padding: 18px 28px 30px; }
+.duel-app .workshop-title { display: flex; align-items: baseline; gap: 12px; min-height: 28px; margin-bottom: 12px; }
+.duel-app .workshop-title h1 { margin: 0; font-size: 17px; font-weight: 650; letter-spacing: -.35px; }
+.duel-app .workshop-title small { color: #8e9bb7; font-size: 10px; }
+.duel-app .duel-workspace { grid-template-columns: minmax(0, 1fr) 248px; gap: 18px; }
+.duel-app .duel-left { gap: 12px; }
+.duel-app .duel-sidebar { gap: 14px; }
+.duel-app :is(.arena-panel, .gru-model-panel, .decision-panel) { border-color: var(--duel-line); background: var(--duel-surface); box-shadow: 0 12px 36px #0002; }
+.duel-app .arena-panel:not(.arena-fullscreen) { border-radius: 13px; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .arena-heading { height: 46px; padding: 0 16px; border-color: var(--duel-line-soft); background: #191f34; gap: 9px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .arena-index { font-size: 12px; padding: 4px 6px; border-color: #ffffff17; background: #ffffff05; color: #98a8d3; }
+.duel-app .arena-panel:not(.arena-fullscreen) .arena-heading h2 { font-size: 11px; font-weight: 600; }
+.duel-app .arena-panel:not(.arena-fullscreen) .arena-heading > div:first-child > div > span { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .phase-badge { padding: 5px 7px; font-size: 8px; background: #ffffff04; border-color: #ffffff12; }
+.duel-app .arena-panel:not(.arena-fullscreen) .expand-button { width: 34px; height: 34px; border-color: #ffffff16; background: #ffffff04; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .scoreboard { grid-template-columns: 1fr 44px 1fr; padding: 12px 17px; gap: 16px; background: #13182b; }
+.duel-app .arena-panel:not(.arena-fullscreen) .team-avatar { width: 33px; height: 33px; border-radius: 8px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .team-avatar .robot-glyph { width: 29px; height: 29px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .team-score-name strong { font-size: 10px; letter-spacing: 1px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .team-score-name > span { font-size: 6px; letter-spacing: .5px; color: #7e8aa6; }
+.duel-app .arena-panel:not(.arena-fullscreen) .health-track { height: 4px; margin: 6px 0 4px; background: #ffffff0e; }
+.duel-app .health-track > div { box-shadow: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .team-score-meta { font-size: 7px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .versus { gap: 4px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .versus > span { font-size: 8px; color: #606e8f; }
+.duel-app .arena-panel:not(.arena-fullscreen) .versus time { font-size: 10px; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .arena-stage { height: clamp(360px, calc(100dvh - 405px), 650px); border-color: #ffffff0e; }
+.duel-app .arena-panel:not(.arena-fullscreen) .stage-top { top: 12px; left: 14px; right: 14px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .stage-tag { font-size: 7px; letter-spacing: .6px; padding: 5px 7px; border-color: #ffffff17; background: #131b31d9; }
+.duel-app .arena-panel:not(.arena-fullscreen) .stage-coordinate { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .stage-tools { top: 46px; right: 12px; gap: 6px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .stage-tool { height: 36px; width: 36px; border-color: #ffffff23; background: #15203bdc; color: #adbbd9; }
+.duel-app .arena-panel:not(.arena-fullscreen) .ready-caption { bottom: 22px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .ready-caption > span { font-size: 7px; letter-spacing: 1px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .ready-caption p { font-size: 9px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .court-side-label { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .arena-legend { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .arena-controls { padding: 9px 15px; min-height: 54px; background: #171d32; gap: 8px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .primary-button { min-height: 36px; padding: 0 14px; font-size: 10px; border-radius: 7px; }
+.duel-app :is(.primary-button, .train-button) { background: #7161e9; border-color: #a292ff59; box-shadow: inset 0 1px 0 #ffffff12; }
+.duel-app :is(.primary-button, .train-button):hover:not(:disabled) { background: #8472f4; }
+.duel-app .arena-panel:not(.arena-fullscreen) .reset-button { width: 36px; height: 36px; background: #ffffff04; border-color: #ffffff17; border-radius: 7px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls { gap: 7px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls label > span { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls select { height: 34px; border-color: #ffffff17; background: #ffffff04; }
+.duel-app .arena-panel:not(.arena-fullscreen) > .manual-panel { padding: 8px 16px 12px; background: #141a2d; border-color: #ffffff0a; }
+.duel-app .arena-panel:not(.arena-fullscreen) .manual-instructions { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .touch-controls { max-width: none; margin: 0; gap: 20px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .movement-joystick { --joystick-size: 92px; --joystick-thumb-size: 40px; border-color: #7d93d258; background: radial-gradient(circle, #2b3a6450, #1721399c); box-shadow: inset 0 0 22px #0002; }
+.duel-app .arena-panel:not(.arena-fullscreen) .joystick-control { gap: 0; }
+.duel-app .arena-panel:not(.arena-fullscreen) .joystick-caption { display: none; }
+.duel-app .arena-panel:not(.arena-fullscreen) .manual-actions { flex: 0 1 300px; max-width: 300px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .manual-action-buttons { gap: 10px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .touch-cover { min-height: 46px; background: #2d2851; color: #d4cbfa; border-color: #b2a0ee35; border-radius: 9px; font-size: 10px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint { min-height: 49px; background: #c0886810; border-color: #f9ae8d2c; border-radius: 9px; color: #eac0ac; }
+.duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint > span { font-size: 9px; }
+.duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint > small { font-size: 7px; color: #9ca8c5; }
+
+.duel-app .training-drawer { border: 1px solid #ffffff14; border-radius: 10px; background: #151a2d; overflow: hidden; }
+.duel-app .training-drawer > summary { display: flex; align-items: center; gap: 10px; list-style: none; padding: 14px 16px; min-height: 49px; font-size: 11px; font-weight: 600; color: #c3cce4; cursor: pointer; user-select: none; }
+.duel-app .training-drawer > summary::-webkit-details-marker { display: none; }
+.duel-app .training-drawer > summary > span { display: flex; align-items: center; gap: 7px; }
+.duel-app .training-drawer > summary > span:first-child { font-size: 11px; color: #c3cce4; font-weight: 600; }
+.duel-app .training-drawer > summary > span:first-child > svg { width: 16px; height: 16px; color: #ac9beb; }
+.duel-app .training-drawer > summary > span:last-child { margin-left: auto; font-size: 9px; color: #8795b3; font-weight: 400; }
+.duel-app .training-drawer > summary > span:last-child > svg { width: 14px; height: 14px; }
+.duel-app .training-drawer[open] > summary > span:last-child > svg { transform: rotate(90deg); }
+.duel-app .training-drawer > summary:focus-visible { outline: 2px solid #9f8cfa; outline-offset: -3px; border-radius: 8px; }
+.duel-app .training-drawer[open] > summary { border-bottom: 1px solid #ffffff0c; }
+.duel-app .training-drawer .learning-panel { margin: 0; border: 0; border-radius: 0; box-shadow: none; background: #171d32; }
+.duel-app .training-drawer .learning-steps { padding: 16px; border-color: #ffffff0c; gap: 14px; }
+.duel-app .training-drawer .learning-actions { padding: 14px 16px; }
+.duel-app .training-drawer .learning-footnote { padding: 0 16px 13px; font-size: 8px; color: #8694b2; }
+.duel-app .training-drawer .learning-notice { padding: 0 16px 12px; }
+.duel-app .training-drawer .tactics-panel { margin: 0; padding: 17px 16px; border-width: 1px 0 0; border-radius: 0; border-color: #ffffff0c; background: #151b2e; box-shadow: none; }
+.duel-app .training-drawer .control-mode { padding: 13px 16px; border-top: 1px solid #ffffff0c; background: #141a2d; }
+.duel-app .training-drawer .section-heading > span:last-child { font-size: 8px; }
+.duel-app .training-drawer .training-controls { gap: 12px; }
+.duel-app .training-drawer .epoch-stepper { height: 36px; border-radius: 7px; background: #11172a; border-color: #ffffff21; }
+.duel-app .training-drawer .epoch-control > label { color: #a4b1cf; font-size: 9px; }
+.duel-app .training-drawer .train-button { border-radius: 7px; }
+.duel-app .duel-sidebar .section-heading { height: 42px; padding: 0 13px; border-color: #ffffff0c; }
+.duel-app .duel-sidebar .section-heading > span:first-child { font-size: 8px; letter-spacing: .7px; }
+.duel-app .duel-sidebar .section-heading > span:last-child { font-size: 9px; }
+.duel-app .duel-sidebar .gru-preview { height: 188px; padding: 9px 7px 4px; }
+.duel-app .duel-sidebar .gru-preview .brain-canvas--compact .brain-drawing { min-height: 110px; }
+.duel-app .duel-sidebar .gru-model-footer { padding: 10px 12px; gap: 7px; border-color: #ffffff0c; }
+.duel-app .duel-sidebar .gru-model-footer > span { font-size: 7px; color: #8f9cbb; }
+.duel-app .duel-sidebar .gru-model-footer > button { font-size: 8px; }
+.duel-app .duel-sidebar .robot-tabs { margin: 12px 12px 0; border-color: #ffffff12; background: #10162a; }
+.duel-app .duel-sidebar .robot-tabs > button { padding: 7px 8px; font-size: 8px; }
+.duel-app .duel-sidebar .decision-content { padding: 0 14px 15px; }
+.duel-app .duel-sidebar .decision-visual { height: 100px; margin-bottom: 7px; }
+.duel-app .duel-sidebar .decision-visual > .robot-glyph { width: 57px; height: 57px; }
+.duel-app .duel-sidebar .decision-orbit { width: 86px; height: 86px; }
+.duel-app .duel-sidebar .decision-chip { bottom: 1px; font-size: 6px; letter-spacing: .7px; }
+.duel-app .duel-sidebar .decision-content h3 { font-size: 16px; margin-top: 6px; }
+.duel-app .duel-sidebar .decision-content > p { min-height: 0; font-size: 9px; line-height: 1.7; margin-top: 7px; color: #8e9cbb; }
+.duel-app .duel-sidebar .shot-readout { margin-top: 13px; padding-top: 12px; gap: 9px; border-color: #ffffff0c; }
+.duel-app .duel-sidebar .shot-readout > div > span { font-size: 6px; letter-spacing: .5px; }
+.duel-app .duel-sidebar .shot-readout strong { font-size: 19px; }
+.duel-app .duel-sidebar .power-meter { display: none; }
+.duel-app .duel-sidebar .robot-stats { margin-top: 14px; padding-top: 12px; border-color: #ffffff0c; }
+.duel-app .duel-sidebar .robot-stats strong { font-size: 15px; }
+.duel-app .duel-sidebar .robot-stats span { font-size: 6px; }
+.duel-bottom-nav { display: none; }
+
+@media (max-width: 1100px) {
+  .duel-app .duel-main { padding: 16px 20px 24px; }
+  .duel-app .duel-workspace { grid-template-columns: minmax(0, 1fr) 220px; gap: 14px; }
+  .duel-app .duel-sidebar .gru-model-footer { flex-direction: column; align-items: flex-start; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-score-name > span { display: none; }
+}
+
+@media (max-width: 900px) {
+  .duel-app { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  .duel-app .duel-topbar { height: 56px; padding: 0 max(18px, env(safe-area-inset-left)) 0 max(18px, env(safe-area-inset-left)); gap: 12px; }
+  .duel-app .duel-topbar nav { display: none; }
+  .duel-app .duel-topbar > .icon-button { width: 36px; height: 36px; }
+  .duel-app .duel-main { padding: 12px 16px 0; }
+  .duel-app .workshop-title { margin-bottom: 9px; min-height: 24px; }
+  .duel-app .workshop-title h1 { font-size: 15px; }
+  .duel-app .workshop-title small { font-size: 9px; }
+  .duel-app .duel-workspace { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .duel-app .duel-sidebar { display: none; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .arena-stage { height: clamp(330px, 46dvh, 560px); }
+  .duel-bottom-nav { position: fixed; z-index: 50; inset: auto 0 0; display: grid; grid-template-columns: repeat(3, 1fr); padding: 7px max(12px, env(safe-area-inset-right)) max(7px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); gap: 4px; min-height: calc(65px + env(safe-area-inset-bottom)); border-top: 1px solid #ffffff11; background: #11162bef; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  .duel-bottom-nav > button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-height: 49px; padding: 5px 8px; background: transparent; border-radius: 10px; color: #8190b3; font-size: 9px; font-weight: 550; letter-spacing: .05px; }
+  .duel-bottom-nav > button > svg { width: 20px; height: 20px; stroke-width: 1.7; }
+  .duel-bottom-nav > button[aria-current="page"] { color: #c2b5ff; background: #8971e911; }
+  .duel-bottom-nav > button[aria-current="page"] > svg { stroke-width: 2; }
+  .duel-bottom-nav > button:active { background: #ffffff08; }
+}
+
+@media (max-width: 600px) {
+  .duel-app .duel-topbar { height: 54px; padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+  .duel-app .duel-brand strong { font-size: 16px; letter-spacing: 1.5px; gap: 8px; }
+  .duel-app .duel-brand strong > span { font-size: 7px; letter-spacing: 1px; }
+  .duel-app .brand-mark { width: 23px; height: 25px; }
+  .duel-app .duel-main { padding: 9px 10px 0; }
+  .duel-app .workshop-title { min-height: 23px; gap: 9px; margin-bottom: 8px; padding-left: 3px; }
+  .duel-app .workshop-title h1 { font-size: 14px; }
+  .duel-app .workshop-title small { font-size: 8px; }
+  .duel-app .duel-left { gap: 10px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) { border-radius: 11px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .arena-heading { height: 42px; padding: 0 10px; gap: 5px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-heading > div:first-child { gap: 7px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-heading h2 { font-size: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .arena-index { font-size: 11px; padding: 3px 5px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .phase-badge { font-size: 7px; gap: 4px; padding: 5px 6px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .expand-button { width: 33px; height: 33px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .scoreboard { grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr); padding: 8px 10px; gap: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-avatar { display: none; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-score-name strong { font-size: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-score-meta > span:first-child { display: none; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-score-meta { justify-content: flex-end; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .team-score-meta > span:last-child { font-size: 6px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .health-track { margin: 5px 0 3px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .versus > span { font-size: 7px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .versus time { font-size: 8px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .arena-stage { height: clamp(300px, 42dvh, 430px); }
+  .duel-app .arena-panel:not(.arena-fullscreen) .stage-top { top: 10px; left: 10px; right: 10px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .stage-tag { font-size: 6px; padding: 5px 6px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .stage-tools { top: 41px; right: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .stage-tool { width: 34px; height: 34px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .ready-caption { bottom: 17px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .ready-caption p { font-size: 8px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .arena-controls { min-height: 52px; padding: 8px 10px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .play-controls { gap: 6px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .primary-button { min-height: 35px; font-size: 9px; padding: 0 11px; gap: 6px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .reset-button { height: 35px; width: 33px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls { gap: 3px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls select { min-width: 44px; padding: 4px; height: 32px; font-size: 9px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .simulation-controls > .icon-button { width: 30px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) > .manual-panel { padding: 7px 12px 10px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .touch-controls { gap: 15px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .movement-joystick { --joystick-size: 94px; --joystick-thumb-size: 40px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .manual-actions { flex: 1; max-width: 225px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .manual-action-buttons { gap: 7px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .touch-cover { font-size: 9px; min-width: 65px; min-height: 45px; padding: 8px; gap: 5px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .touch-cover > svg { width: 14px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint { min-width: 98px; min-height: 49px; padding: 7px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint > span { font-size: 8px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint > span > svg { width: 12px; }
+  .duel-app .training-drawer > summary { padding: 12px 13px; min-height: 46px; font-size: 10px; gap: 8px; }
+  .duel-app .training-drawer > summary > span:first-child { font-size: 10px; }
+  .duel-app .training-drawer > summary > span:last-child { font-size: 8px; }
+  .duel-app .training-drawer .learning-steps { padding: 14px 12px; gap: 9px; }
+  .duel-app .training-drawer .learning-steps strong { font-size: 9px; }
+  .duel-app .training-drawer .learning-steps small { font-size: 7px; line-height: 1.6; }
+  .duel-app .training-drawer .learning-actions { padding: 12px; gap: 8px; }
+  .duel-app .training-drawer .training-controls { padding-top: 11px; border-color: #ffffff0e; gap: 10px; }
+  .duel-app .training-drawer .learning-footnote { padding-left: 12px; padding-right: 12px; font-size: 7px; }
+  .duel-app .training-drawer .tactics-panel { padding: 15px 12px; }
+  .duel-app .training-drawer .section-heading > span:last-child { display: none; }
+  .duel-app .training-drawer .control-mode { padding: 13px 12px; gap: 8px; }
+  .duel-app .training-drawer .control-mode p { font-size: 8px; }
+  .duel-app .training-drawer .control-mode > button { padding: 9px; }
+}
+
+@media (max-width: 359px) {
+  .duel-app .duel-main { padding-left: 7px; padding-right: 7px; }
+  .duel-app .workshop-title small { display: none; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .movement-joystick { --joystick-size: 86px; --joystick-thumb-size: 38px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .touch-controls { gap: 10px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .manual-action-buttons { gap: 5px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .touch-cover { min-width: 58px; font-size: 8px; padding: 7px; }
+  .duel-app .arena-panel:not(.arena-fullscreen) .tap-to-fire-hint { min-width: 90px; }
+}
+
+body.playable-fullscreen-open .duel-bottom-nav { display: none; }
